@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 # Run commands that generally resolve environment issues
 #   Commands: Bundle, Restart Pow, Migrate DB, Reindex Solr
 #
