@@ -3,3 +3,10 @@
 	email = david@davidstump.net
 [color]
 	ui = true
+  diff = auto
+[color "diff"]
+  new = cyan
+  old = magenta
+  frag = yellow
+  meta = green
+  commit = normal
