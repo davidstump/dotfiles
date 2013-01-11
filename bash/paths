@@ -1,0 +1,2 @@
+export PATH="./bin:/usr/local/bin:$PATH"
+[[ -s "/Users/david/.rvm/scripts/rvm" ]] && source "/Users/david/.rvm/scripts/rvm"

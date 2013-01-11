@@ -1,0 +1,1 @@
+PS1="${cyan}\u:\w${endColor}\$(git branch 2>/dev/null | grep -e '\* ' | sed 's/^..\(.*\)/${white}❮${endColor}${white}\1${endColor}${white}❯${endColor}/')⚡ "

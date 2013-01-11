@@ -1,0 +1,42 @@
+# Run commands that generally resolve environment issues
+#   Commands: Bundle, Restart Pow, Migrate DB, Reindex Solr
+#
+# Usage:
+# $ fixthis [appname]
+#
+function fixthis() {
+  DIR="$( basename "$( pwd )" )"
+  if [ $DIR == "Illume" ]; then
+    cd ~/Projects/Illume
+    bundle
+    touch tmp/restart.txt
+    rake db:migrate
+    rake sunspot:reindex
+  elif [ $DIR == "sliqr" ]; then
+    cd ~/Projects/sliqr
+    bundle
+    touch tmp/restart.txt
+    rake db:migrate
+  fi
+}
+
+# Postgres equivalent to heroku db:pull. 
+# Pulls latest heroku pgbackups dump into local database
+# 
+# Usage: 
+#
+# $ heroku_pg_pull [appname] [local database name]
+# 
+function heroku_pg_pull(){
+  echo "!   WARNING: Data in the local database '$2' will be destroyed."
+  echo "    Type '$2' to overwrite data in local database '$2'"
+  read -p "> " local_database_name
+  echo
+  if [ "$local_database_name" == "$2" ]; then
+    curl -o heroku_pg_pull_latest_backup.dump `heroku pgbackups:url -a $1`;
+    pg_restore --verbose --clean --no-acl --no-owner -h localhost -U `whoami` -d $2 heroku_pg_pull_latest_backup.dump;
+    rm heroku_pg_pull_latest_backup.dump;
+  else
+    echo "Aborted"
+  fi
+}

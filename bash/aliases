@@ -1,0 +1,18 @@
+# General
+alias reload='. ~/.bash_profile'
+alias myip="curl icanhazip.com"
+
+# Editor
+alias subl='open -a "Sublime Text 2"'
+
+# Rails 
+alias serve="ruby -rwebrick -e\"s = WEBrick::HTTPServer.new(:Port => 3000, :DocumentRoot => Dir.pwd); trap('INT') { s.shutdown }; s.start\""
+alias fore="foreman start -f Procfile-dev"
+alias logs="tail -f log/development.log"
+alias console="bundle exec rails console"
+alias migrate="bundle exec rake db:migrate"
+alias reset="bundle exec rake:reset"
+alias restart="touch tmp/restart.txt"
+
+# Git
+alias timesheet="git log --oneline --author=David --since='6am'"
