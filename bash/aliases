@@ -1,6 +1,15 @@
 # General
 alias reload='. ~/.bash_profile'
 alias myip="curl icanhazip.com"
+alias h='history'
+alias l="ls -lah"
+alias ls="ls -F"
+alias ll="ls -l"
+alias la='ls -A'
+alias c='clear'
+alias dir='ls -la'
+alias ld='ls -al -d * | egrep "^d"' # only subdirectories
+alias lt='ls -alt | head -20' # recently changed files
 
 # Editor
 alias subl='open -a "Sublime Text 2"'
