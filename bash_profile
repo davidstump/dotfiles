@@ -9,6 +9,9 @@ alias console="bundle exec rails console"
 alias migrate="bundle exec rake db:migrate"
 alias reset="bundle exec rake:reset"
 alias restart="touch tmp/restart.txt"
+alias reload='. ~/.bash_profile'
+alias myip="curl icanhazip.com"
+
 function fixthis() {
   DIR="$( basename "$( pwd )" )"
   if [ $DIR == "Illume" ]; then
