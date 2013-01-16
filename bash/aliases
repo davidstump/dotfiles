@@ -13,6 +13,7 @@ alias lt='ls -alt | head -20' # recently changed files
 
 # Editor
 alias subl='open -a "Sublime Text 2"'
+alias edit='subl .'
 
 # Rails 
 alias serve="ruby -rwebrick -e\"s = WEBrick::HTTPServer.new(:Port => 3000, :DocumentRoot => Dir.pwd); trap('INT') { s.shutdown }; s.start\""
